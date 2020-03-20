@@ -14,14 +14,13 @@ int main()
     char x;
     int check[62] = {0};
     bool max = true;
-    int count = 0;
 
     while (infile >> x){
         countchar(x);
-        }
-    for (int i = 0; i < 60; i++){
+    }
+    for (int i = 0; i < 62; i++){
         max = true;
-        for (int j = 0; j < 60; j++)
+        for (int j = 0; j < 62; j++)
         {
             if (j == i)
                 continue;
@@ -56,4 +55,5 @@ int countchar(char a){
         cnt[int(a - 'a' + 36)] += 1;
     else
         cnt[int(a)] += 1;
+    return 0;
 }
