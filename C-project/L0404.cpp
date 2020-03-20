@@ -4,42 +4,56 @@
 using namespace std;
 
 int countchar(char a);
+int cnt[62] = {0};
 
 int main()
 {
     ifstream infile("1.in");
     ofstream outfile("1.out");
 
-    int a;
-    int cnt[62] = {0};
+    char x;
     int check[62] = {0};
     bool max = true;
+    int count = 0;
 
-    while (infile >> a)
-    {
-        countchar(a);
-    }
-    for (int i = 0; i < 60; i++)
-    {
+    while (infile >> x){
+        countchar(x);
+        }
+    for (int i = 0; i < 60; i++){
         max = true;
         for (int j = 0; j < 60; j++)
         {
             if (j == i)
                 continue;
-            if (cnt[i] < cnt[j])
+            if (cnt[i] < cnt[j]){
                 max = false;
+                break;
+            }
         }
-        if (max)
+        if(max)
             check[i] = 1;
+    }
+    for(int i=0;i<62;i++){
+        if(check[i]==1){
+            if (i < 10){
+                outfile << i;
+                break;
+            }
+            else if (i < 36){
+                outfile << char(i - 10 + 65);
+                break;
+            }
+                else outfile << char(i - 36 + 97);
+                break;
+        }
     }
 }
 
-int countchar(char a)
-{
+int countchar(char a){
     if (a >= 'A' && a <= 'Z')
-        cnt[a - 'A'] += 1;
+        cnt[int(a - 'A' + 10)] += 1;
     else if (a >= 'a' && a <= 'z')
-        cnt[a - 'a' + 26] += 1;
+        cnt[int(a - 'a' + 36)] += 1;
     else
-        cnt[a + 52] += 1;
+        cnt[int(a)] += 1;
 }
