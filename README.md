@@ -1,8 +1,1 @@
-"# C-LabTimeCode" 
-"# C-LabTimeCode" 
-"# C-LabTimeCode" 
-"# LabCode" 
-"# LabCode" 
-"# LabCode" 
-"# LabCode" 
-"# Code" 
+CSIE 2019-2020 Labtime code
