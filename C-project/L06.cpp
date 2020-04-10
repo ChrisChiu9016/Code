@@ -91,8 +91,8 @@ void myDateTime::outputROC()
 {
     cout <<"中華民國"<<setw(3)<<setfill('0')<<year-1911<<"年"<<setw(2)<<setfill('0')<<month<<"月"<<setw(2)<<setfill('0')<<day<<"日";
     if(apm==0)
-        cout<<"上午"<<setw(2)<<setfill('0')<<hrs24<<"時"<<setw(2)<<setfill('0')<<minute<<"分"<<setw(2)<<setfill('0')<<second<<"秒"<<endl;
-    else cout <<"下午"<<setw(2)<<setfill('0')<<hrs24<<"時"<<setw(2)<<setfill('0')<<minute<<"分"<<setw(2)<<setfill('0')<<second<<"秒"<<endl;
+        cout<<"上午"<<setw(2)<<setfill('0')<<hrs24<<"點"<<setw(2)<<setfill('0')<<minute<<"分"<<setw(2)<<setfill('0')<<second<<"秒"<<endl;
+    else cout <<"下午"<<setw(2)<<setfill('0')<<hrs24<<"點"<<setw(2)<<setfill('0')<<minute<<"分"<<setw(2)<<setfill('0')<<second<<"秒"<<endl;
 }
 
 int main()
