@@ -8,7 +8,7 @@ double vntd,vusd,veud;
 class bankacc
 {
 public:
-    bankacc(const int ntd,const int usd,const int eud)
+    bankacc(const double ntd,const double usd,const double eud)
     {
         setNTD(ntd);
         setUSD(usd);
@@ -20,9 +20,9 @@ public:
     bankacc operator%(const bankacc& that);
     bankacc operator/(const bankacc& that);
     int reset(const double ntd,const double usd,const double eud);
-    int setNTD(const int ntd);
-    int setUSD(const int usd);
-    int setEUD(const int eud);
+    int setNTD(const double ntd);
+    int setUSD(const double usd);
+    int setEUD(const double eud);
     double valueINNTD();
     double valueINUSD();
     double valueINEUD();
@@ -66,17 +66,17 @@ bankacc bankacc::operator/(const bankacc& that)
     this->eud-=1.01*that.eud;
     return bankacc(this->ntd,this->usd,this->eud);
 }
-int bankacc::setNTD(const int ntd)
+int bankacc::setNTD(const double ntd)
 {
     this->ntd=ntd;
     return 0;
 }
-int bankacc::setUSD(const int usd)
+int bankacc::setUSD(const double usd)
 {
     this->usd=usd;
     return 0;
 }
-int bankacc::setEUD(const int eud)
+int bankacc::setEUD(const double eud)
 {
     this->eud=eud;
     return 0;
@@ -84,27 +84,32 @@ int bankacc::setEUD(const int eud)
 }
 void bankacc::output()
 {
-    cout <<  "NTD:" << valueINNTD()
-            << " USD:" << valueINUSD()
-            << " EUD:" << valueINEUD();
+    cout << "NTD:";
+    valueINNTD();
+    cout << " USD:";
+    valueINUSD();
+    cout << " EUD:";
+    valueINEUD();
     cout << endl;
 }
 double bankacc::valueINNTD()
 {
     vntd=this->ntd+this->usd*UtoN+this->eud*EtoN;
-    return vntd;
+    cout << vntd;
+    return 0;
 }
 double bankacc::valueINUSD()
 {
     vusd=vntd/30;
-    return vusd;
+    cout << vusd;
+    return 0;
 }
 double bankacc::valueINEUD()
 {
 
     veud=vntd/40;
-    return veud;
-
+    cout << veud;
+    return 0;
 }
 int bankacc::reset(const double ntd,const double usd,const double eud)
 {
