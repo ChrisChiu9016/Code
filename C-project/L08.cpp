@@ -69,14 +69,18 @@ bankacc bankacc::operator/(const bankacc& that)
 int bankacc::setNTD(const int ntd)
 {
     this->ntd=ntd;
+    return 0;
 }
 int bankacc::setUSD(const int usd)
 {
     this->usd=usd;
+    return 0;
 }
 int bankacc::setEUD(const int eud)
 {
     this->eud=eud;
+    return 0;
+
 }
 void bankacc::output()
 {
@@ -92,23 +96,27 @@ double bankacc::valueINNTD()
 {
     vntd=this->ntd+this->usd*UtoN+this->eud*EtoN;
     cout << vntd;
+    return 0;
 }
 double bankacc::valueINUSD()
 {
     vusd=vntd/30;
     cout << vusd;
+    return 0;
 }
 double bankacc::valueINEUD()
 {
 
     veud=vntd/40;
     cout << veud;
+    return 0;
 }
 int bankacc::reset(const int ntd,const int usd,const int eud)
 {
     setNTD(ntd);
     setUSD(usd);
     setEUD(eud);
+    return 0;
 }
 
 int main()
