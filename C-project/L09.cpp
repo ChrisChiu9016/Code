@@ -232,6 +232,7 @@ powerDate powerDate::operator[](const int n)
             this->month-=1;
         }
     }
+    return powerDate(this->year,this->month,this->day);
 }
 int main()
 {
