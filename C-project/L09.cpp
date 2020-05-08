@@ -243,7 +243,7 @@ int main()
         if(a==1)
         {
             cin >> d1;
-            cout << d1 << endl;
+            cout << d1 ;
         }
         else if(a==2)
         {
@@ -251,7 +251,7 @@ int main()
             cin >> d1;
             cin >> n;
             d1[n];
-            cout << d1 << endl;
+            cout << d1 ;
         }
         else if(a==0)
             return 0;
