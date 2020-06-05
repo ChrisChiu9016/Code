@@ -20,6 +20,7 @@ private:
     int second;
 
 public:
+    myDateTime(const int y, const int m, const int d)
     int setTime(const int hour,const int minute,const int second);
     int setDate(const int year,const int month,const int day);
     int whatDate();

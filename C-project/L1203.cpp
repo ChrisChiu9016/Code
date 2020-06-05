@@ -1,5 +1,6 @@
 #include <cmath>
 #include <iostream>
+#include <string.h>
 #include <algorithm>
 
 using namespace std;
@@ -28,9 +29,9 @@ public:
     int insert(int value);
 };
 int sortList::insert(int value){
-    ExpandNeeded();
-    setValue(getSize()+1, value);
-    Sizeplus();
+    ExpandNeeded();                     //檢查是否需要 expandSize
+    setValue(getSize()+1, value);       
+    Sizeplus();                         //siezUsed +1
     sortArray();
     return 0;
 }
