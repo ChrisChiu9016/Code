@@ -16,12 +16,12 @@ public:
     myDate(const int y, const int m, const int d);
     const myDate operator + (const int day); //d+day天
     const myDate operator - (const int day); //d-day天
-	int getYear();
-	int getMonth();
-	int getDay();
-	int getWeek(); //0~6 蔡勒公式
-	int setDate(const int y, const int m, const int d );
-	void output(); //輸出 year-month-day (week)
+    int getYear();
+    int getMonth();
+    int getDay();
+    int getWeek(); //0~6 蔡勒公式
+    int setDate(const int y, const int m, const int d );
+    void output(); //輸出 year-month-day (week)
     bool isLeap();
     void adjust();
 };
@@ -43,129 +43,130 @@ const myDate myDate::operator-(const int day)
 }
 void myDate::adjust()
 {
-    while(1){
+    while(1)
+    {
         if(this->month==4||this->month==6||this->month==9||this->month==11)
-    {
-        if(this->day>30)
         {
-            this->day-=30;
-            this->month+=1;
+            if(this->day>30)
+            {
+                this->day-=30;
+                this->month+=1;
+            }
+            else if(this->day<1)
+            {
+                this->day+=31;
+                this->month-=1;
+            }
+            else
+                break;
         }
-        else if(this->day<1)
+        else if(this->month==5||this->month==10)
         {
-            this->day+=31;
-            this->month-=1;
+            if(this->day>31)
+            {
+                this->day-=31;
+                this->month+=1;
+            }
+            else if(this->day<1)
+            {
+                this->day+=30;
+                this->month-=1;
+            }
+            else
+                break;
         }
-        else
-            break;
-    }
-    else if(this->month==5||this->month==10)
-    {
-        if(this->day>31)
+        else if(this->month==3)
         {
-            this->day-=31;
-            this->month+=1;
+            if(this->day>31)
+            {
+                this->day-=31;
+                this->month+=1;
+            }
+            else if(this->day<1)
+            {
+                this->day+=28+isLeap();
+                this->month-=1;
+            }
+            else
+                break;
         }
-        else if(this->day<1)
+        else if(this->month==7)
         {
-            this->day+=30;
-            this->month-=1;
+            if(this->day>31)
+            {
+                this->day-=31;
+                this->month+=1;
+            }
+            else if(this->day<1)
+            {
+                this->day+=30;
+                this->month-=1;
+            }
+            else
+                break;
         }
-        else
-            break;
-    }
-    else if(this->month==3)
-    {
-        if(this->day>31)
+        else if(this->month==12)
         {
-            this->day-=31;
-            this->month+=1;
+            if(this->day>31)
+            {
+                this->day-=31;
+                this->month=1;
+                this->year+=1;
+            }
+            else if(this->day<1)
+            {
+                this->day+=30;
+                this->month-=1;
+            }
+            else
+                break;
         }
-        else if(this->day<1)
+        else if(this->month==8)
         {
-            this->day+=28+isLeap();
-            this->month-=1;
+            if(this->day>31)
+            {
+                this->day-=31;
+                this->month+=1;
+            }
+            else if(this->day<1)
+            {
+                this->day+=31;
+                this->month-=1;
+            }
+            else
+                break;
         }
-        else
-            break;
-    }
-    else if(this->month==7)
-    {
-        if(this->day>31)
+        else if(this->month==1)
         {
-            this->day-=31;
-            this->month+=1;
+            if(this->day>31)
+            {
+                this->day-=31;
+                this->month+=1;
+            }
+            else if(this->day<1)
+            {
+                this->day+=31;
+                this->month=12;
+                this->year-=1;
+            }
+            else
+                break;
         }
-        else if(this->day<1)
+        else if(this->month==2)
         {
-            this->day+=30;
-            this->month-=1;
+            if(this->day>28+isLeap())
+            {
+                this->day-=28+isLeap();
+                this->month+=1;
+            }
+            else if(this->day<1)
+            {
+                this->day+=31;
+                this->month-=1;
+            }
+            else
+                break;
         }
-        else
-            break;
-    }
-    else if(this->month==12)
-    {
-        if(this->day>31)
-        {
-            this->day-=31;
-            this->month=1;
-            this->year+=1;
-        }
-        else if(this->day<1)
-        {
-            this->day+=30;
-            this->month-=1;
-        }
-        else
-            break;
-    }
-    else if(this->month==8)
-    {
-        if(this->day>31)
-        {
-            this->day-=31;
-            this->month+=1;
-        }
-        else if(this->day<1)
-        {
-            this->day+=31;
-            this->month-=1;
-        }
-        else
-            break;
-    }
-    else if(this->month==1)
-    {
-        if(this->day>31)
-        {
-            this->day-=31;
-            this->month+=1;
-        }
-        else if(this->day<1)
-        {
-            this->day+=31;
-            this->month=12;
-            this->year-=1;
-        }
-        else
-            break;
-    }
-    else if(this->month==2)
-    {
-        if(this->day>28+isLeap())
-        {
-            this->day-=28+isLeap();
-            this->month+=1;
-        }
-        else if(this->day<1)
-        {
-            this->day+=31;
-            this->month-=1;
-        }
-        else
-            break;
-    }
     }
 }
 bool myDate::isLeap()
@@ -188,7 +189,8 @@ int myDate::getWeek() //蔡勒公式
 {
     Zmonth = month;
     Zyear = year;
-    if (Zmonth==1||Zmonth==2){
+    if (Zmonth==1||Zmonth==2)
+    {
         Zmonth = Zmonth + 12;
         Zyear -= 1;
     }
