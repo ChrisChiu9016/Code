@@ -1,0 +1,65 @@
+
+int floortoline(int floor)
+{
+   return  25-2*floor;
+}
+void printback()
+{
+    mvaddstr(1,1,"CF\n\n BF\n\n AF\n\n 9F\n\n 8F\n\n 7F\n\n 6F\n\n 5F\n\n 4F\n\n 3F\n\n 2F\n\n 1F");
+    refresh();
+}
+void printelevator(class elevator &d)
+{
+    int y=floortoline(d.getNowFloor());
+    int x=60+5*d.getID();
+    int n=d.getNumOfPeople();
+    int m=d.getMilage();
+    mvaddstr(y,x,"|   |");
+    if(d.getUpOrDown()==1)
+    {
+        mvaddstr(y-1,x,"+   +");
+    }
+    else
+    {
+        mvaddstr(y-1,x,"-   -");
+    }
+    mvprintw(y-1,x+2,"%d",n);
+    mvprintw(y,x+2,"%d",m);
+}
+void peopleinfloor(class people &p){
+    int i,y;
+    int j=0;
+    for(y=1;y<=23;y+=2){
+        for(i=0;i<=150;i++){
+            if(p.getState(i)!=3&&((-0.5)*y+12.5)==p.getCurrentfloor(i)){
+                j++;
+            }
+        }
+        mvprintw(y,3,"%d",j);
+        j=0;
+    }
+}
+void peoplewaiting(class people &p){
+    int n,i,y,x;
+    int t=0;
+    int f=0;
+    for(y=1;y<=23;y+=2){
+        for(x=64;x>3;x-=3){
+            for(i=t+1;i<=150;i++){
+                if(p.getState(i)==2&&((-0.5)*y+12.5)==p.getCurrentfloor(i)){
+                    n=p.getDestination(i);
+                    t=i;
+                    break;
+                }
+                else if(i==150){
+                    f=1;
+                }
+            }
+            if(f==1){
+                f=0;
+                break;
+            }
+            mvprintw(y,x,"%d",n);
+        }
+    }
+}

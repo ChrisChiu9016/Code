@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1593414055 source:c:\users\chris\code\labtime14\main.cpp
+	<curses.h>
+	<cmath>
+	<iostream>
+	<time.h>
+	<windows.h>
+
+1220933418 c:\users\chris\code\elevator\include\curses.h
+	<stdarg.h>
+	<stddef.h>
+	<stdio.h>
+	<wchar.h>
+

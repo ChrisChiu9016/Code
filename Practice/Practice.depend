@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1592747199 source:c:\users\chris\code\practice\main.cpp
+	<curses.h>
+	<iostream>
+	<string>
+	<windows.h>
+
+1220933418 c:\users\chris\code\elevator\include\curses.h
+	<stdarg.h>
+	<stddef.h>
+	<stdio.h>
+	<wchar.h>
+
